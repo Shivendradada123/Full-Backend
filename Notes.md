@@ -66,10 +66,12 @@ undefined
 ```
 const http = require('http');
 
-const server = function (req, res){
-  console.log(req)
-};
+const server = http.createServer((req,res)=>{
+  console.log(req);
+});
 
- const  port = http.createServer(server);
-port.listen(5000);
+const PORT = 5000;
+server.listen(PORT, ()=>{
+  console.log(`server is running at http://localhost:${PORT}`)
+})
 ```
