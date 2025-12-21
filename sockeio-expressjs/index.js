@@ -16,23 +16,30 @@ app.use("/",homeRoute)
 // create seerver for the socket io
 const server = http.createServer(app)
 
-const io = new Server(server,{
-    cors:{
-        origin:['http://localhost:5173'],
-        methods:["GET","POST"],
-        credentials:true
-    }
-})
+const io = new Server(server, {
+  cors: {
+    origin: ["http://localhost:5173"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+});
 
-io.on("connection",(socket)=>{
-    console.log("user connected: ", socket.id)
+io.on("connection", (socket) => {
+  console.log("User connected:", socket.id);
 
-    socket.on("test",(data)=>{
-        console.log(data)
+  // Listen from client
+  socket.on("send_message", (data) => {
+    console.log("Message received:", data);
 
-        io.emit("test2",data)
-    })
-})
-app.listen(port, ()=>{
+    // Send to all connected clients
+    io.emit("receive_message", data);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected:", socket.id);
+  });
+});
+
+server.listen(port, ()=>{
     console.log(`server running at http://localhost:${port}`)
 })
