@@ -59,3 +59,17 @@ undefined
 1. isse kya hota hai ki node module se import karta hai 
 2. Eg- {const http = require('modul')}
 ![alt text](image-3.png)
+
+
+
+## How to create basics server code
+```
+const http = require('http');
+
+const server = function (req, res){
+  console.log(req)
+};
+
+ const  port = http.createServer(server);
+port.listen(5000);
+```
