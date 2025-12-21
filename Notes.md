@@ -42,6 +42,20 @@ undefined
 4. DNS Server: Ime Ip Store rahta hia 
 5. Root DNS : yaha jo hota uska EG- {.com,.org, .ai } isko check karta hai
 
-## HOW Work WEB?
+## HOW  WEB Work?
 
 ![alt text](image.png)
+
+## What are Protocals
+![alt text](image.png)
+
+
+## Node COre Modules
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+## Requird Keyword
+1. isse kya hota hai ki node module se import karta hai 
+2. Eg- {const http = require('modul')}
+![alt text](image-3.png)
