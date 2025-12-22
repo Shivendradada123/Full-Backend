@@ -1,11 +1,22 @@
-const http = require('http');
+const http = require("http");
 
-const server = http.createServer((req,res)=>{
-  console.log(req.url, req.method, req.headers);
-  
+const server = http.createServer((req, res) => {
+  res.setHeader("Conttent-Type", "text/html");
+  res.write(`<html>
+          <head>
+<title>   First html code in node js  </title>
+        </head>
+        <body>
+
+          <h1>
+            Shivendra mauhariya
+            </h1>
+        </body>
+            </html>
+          `);
 });
 
 const PORT = 5000;
-server.listen(PORT, ()=>{
-  console.log(`server is running at http://localhost:${PORT}`)
-})
+server.listen(PORT, () => {
+  console.log(`server is running at http://localhost:${PORT}`);
+});

@@ -42,9 +42,6 @@ undefined
 4. DNS Server: Ime Ip Store rahta hia 
 5. Root DNS : yaha jo hota uska EG- {.com,.org, .ai } isko check karta hai
 
-## HOW  WEB Work?
-
-![alt text](image.png)
 
 ## What are Protocals
 ![alt text](image.png)
@@ -124,3 +121,28 @@ server.listen(PORT, ()=>{
 1. url se basiclly hota kya hai ki url ki details ati hai 
 2. Method yaha batata hai ki request ki type ki hai jaise ki {GET, POST, etc.}
 3.Headrs yaha batata hai {Data type, Browser infor, Token,Authorization}
+
+
+## Sending Response
+
+1. isme ham koye bhi data bhej satke hai jise ki eg- {  html data, json data    }
+ 2. step 1st
+ ```
+res.setHeader("Conttent-Type", "text/html");
+ ```
+3. step 2nd
+```
+res.write(`<html>
+          <head>
+<title>   First html code in node js  </title>
+        </head>
+        <body>
+
+          <h1>
+            Shivendra mauhariya
+            </h1>
+        </body>
+            </html>
+          `);
+});
+```
