@@ -75,3 +75,52 @@ server.listen(PORT, ()=>{
   console.log(`server is running at http://localhost:${PORT}`)
 })
 ```
+
+
+
+## Node LifeCycle & Event Loop 
+
+![alt text](image-4.png)
+
+
+## How to Exit Server 
+
+![alt text](image-5.png)
+
+1. Proccess.exit() -- se hota kya hai ki man lo jo fnc chal raha jisme console karna hai request ko to proccess.exit() se ham exit kar skate Note-{isko karne se server ruk jayega console ke baad} 
+2. ham ctrl+c se bhi kill kar sakte hai server lekin isko kahi jagha kar skte hai jisse hamra kam hone ke baad server ruk jaye
+
+```
+const http = require('http');
+
+const server = http.createServer((req,res)=>{
+  console.log(req);
+  process.exit();
+});
+
+const PORT = 5000;
+server.listen(PORT, ()=>{
+  console.log(`server is running at http://localhost:${PORT}`)
+})
+```
+
+
+## UnderStanding Request Object
+
+```
+const http = require('http');
+
+const server = http.createServer((req,res)=>{
+  console.log(req.url, req.method, req.headers);
+  
+});
+
+const PORT = 5000;
+server.listen(PORT, ()=>{
+  console.log(`server is running at http://localhost:${PORT}`)
+})
+```
+
+1. url se basiclly hota kya hai ki url ki details ati hai 
+2. Method yaha batata hai ki request ki type ki hai jaise ki {GET, POST, etc.}
+3.Headrs yaha batata hai {Data type, Browser infor, Token,Authorization}
