@@ -3,6 +3,7 @@ import {Server} from "socket.io"
 import http from "http"
 import dotenv from "dotenv"
 import { mongooconnect } from "./lib/mongodb.js"
+import { mongoConnectMiddleWare } from "./middleware/mongoconnectmiddleware.js"
 
 dotenv.config()
 
@@ -12,6 +13,8 @@ const PORT = process.env.PORT || 5000;
 const server = http.createServer(app)
 
 mongooconnect(mongdbUri)
+
+app.use(mongoConnectMiddleWare());
 /// initialise scoket 
 const socket = new Server(server,{
     cors:{
@@ -20,6 +23,8 @@ const socket = new Server(server,{
         credentials:true
     }
 })
+
+
 
 server.listen(PORT, ()=>{
     console.log(`http://localhost:${PORT}`)
