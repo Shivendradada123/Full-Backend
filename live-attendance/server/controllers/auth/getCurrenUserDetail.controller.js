@@ -1,7 +1,7 @@
 import { mongooconnect } from "../../lib/mongodb.js";
 import User from "../../models/User.js";
 import jwt from 'jsonwebtoken'
-import { tokenSchema, tokenValidation } from "../../zod/token/tokenValidation.js";
+import {  tokenValidation } from "../../zod/token/tokenValidation.js";
 import z from 'zod'
 /**
  * 
@@ -10,48 +10,26 @@ import z from 'zod'
  */
 export const currentUserData = async (req , res)=>{
     try {
-        const token = req.header.autherization?.split(' ')[1];
+       const userFromRequest = req.user;
 
 
-        if(!token){
+       if(!userFromRequest){
             return res.status(401).json({
                 success:false,
-                error:"Bad Request!"
+                error: "Unotherized!"
             })
-        }
+       }
+       // validating user data or not
+       const isValidTokenData = tokenValidation.safeParse(userFromRequest)
 
-        const isValidtoken = tokenSchema.safeParse(token)
+       if(!isValidTokenData){
+        return res.status(401).json({
+            success:false,
+            error:"Invalid token type!"
+        })
+       }
 
-        if(!isValidBody.success){
-            return res.status(401).json({
-                success:false,
-                error:"Unotherized"
-            })
-        }
-
-        let decodedToken ;
-
-
-        try {
-         decodedToken = jwt.verify(body.Autherization , process.env.JWT_SECRET)
-        } catch (error) {
-                return res.status(401).json({
-                    success:false,
-                    error: "Invalid token!"
-                })
-        }
-
-        // if by change ivalid tojken format 
-        const isValidToken = tokenValidation(decodedToken)
-
-        if(!isValidToken){
-            return res.status(401).json({
-                success:false,
-                error:"Invalid token format!"
-            })
-        }
-
-
+       
         const isConnected = await mongooconnect()
 
 

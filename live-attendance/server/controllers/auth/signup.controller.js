@@ -1,5 +1,5 @@
 import { mongooconnect } from "../../lib/mongodb.js";
-import emailValidation from "../../zod/auth/authValidations.js";
+import {emailValidation, loginBodyValidation} from "../../zod/auth/authValidations.js";
 import User from '../../models/User.js'
 import bcryptjs from "bcryptjs"
 import jwt from "jsonwebtoken"
@@ -19,12 +19,12 @@ export const signUpController = async (req , res )=>{
             })
         }
 
-        const isValid = emailValidation(body);
+        const isValid = emailValidation.safeParse(body)
 
         if(!isValid.success){
             return res.status(400).json({
                 success:false,
-                error: isValid.error.format()
+                error: "please provide valid data into as request!"
             })
         }
 

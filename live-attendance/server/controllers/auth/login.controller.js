@@ -19,7 +19,7 @@ export const loginController = async (req , res )=>{
             })
         }
 
-        const isValidData = loginBodyValidation(boyd);
+        const isValidData = loginBodyValidation.safeParse(boyd);
 
 
         if(!isValidData.success){
