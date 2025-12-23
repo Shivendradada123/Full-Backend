@@ -3,6 +3,7 @@ import User from "../../models/User.js";
 import jwt from 'jsonwebtoken'
 import {  tokenValidation } from "../../zod/token/tokenValidation.js";
 import z from 'zod'
+import mongoose from "mongoose";
 /**
  * 
  * @param {import("express").Response} req 
@@ -45,7 +46,7 @@ export const currentUserData = async (req , res)=>{
         const user = await User.aggregate([
             {
                 $match:{
-                    _id:decodedToken.userId
+                    _id:new mongoose.Types.ObjectId( decodedToken.userId)
                 }
             },
             {
