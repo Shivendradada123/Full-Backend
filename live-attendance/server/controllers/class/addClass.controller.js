@@ -57,9 +57,19 @@ export const addClass = async (req , res ) =>{
         const createdClass = await Class.create({
             className:body.className,
             teacherId:user.userId,
-            
         })
         
+        if(!createdClass){
+            return res.status(500).json({
+                success:false,
+                error:"Failed to create class!"
+            })
+        }
+
+        return res.status(201).json({
+            success:true,
+            data:createdClass
+        })
     } catch (error) {
         return res.status(500).json({
             success:false,
