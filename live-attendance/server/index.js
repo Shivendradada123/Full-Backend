@@ -4,7 +4,7 @@ import http from "http"
 import dotenv from "dotenv"
 import { mongooconnect } from "./lib/mongodb.js"
 import { mongoConnectMiddleWare } from "./middleware/mongoconnectmiddleware.js"
-
+import authRouters from "./routers/auth.router.js"
 dotenv.config()
 
 const mongdbUri = process.env.MONGODB_URI 
@@ -15,6 +15,8 @@ const server = http.createServer(app)
 mongooconnect(mongdbUri)
 
 app.use(mongoConnectMiddleWare());
+app.use("/auth", authRouters)
+
 /// initialise scoket 
 const socket = new Server(server,{
     cors:{

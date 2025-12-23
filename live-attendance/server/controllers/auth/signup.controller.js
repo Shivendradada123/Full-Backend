@@ -1,5 +1,5 @@
 import { mongooconnect } from "../../lib/mongodb.js";
-import emailValidation from "../../zod/auth/email.js";
+import emailValidation from "../../zod/auth/authValidations.js";
 import User from '../../models/User.js'
 import bcryptjs from "bcryptjs"
 import jwt from "jsonwebtoken"
