@@ -22,14 +22,14 @@ export const currentUserData = async (req , res)=>{
        // validating user data or not
        const isValidTokenData = tokenValidation.safeParse(userFromRequest)
 
-       if(!isValidTokenData){
+       if(!isValidTokenData.success){
         return res.status(401).json({
             success:false,
             error:"Invalid token type!"
         })
        }
 
-       
+
         const isConnected = await mongooconnect()
 
 
