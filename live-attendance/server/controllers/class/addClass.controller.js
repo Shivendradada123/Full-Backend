@@ -77,3 +77,5 @@ export const addClass = async (req , res ) =>{
         })
     }
 }
+
+export default addClass;
