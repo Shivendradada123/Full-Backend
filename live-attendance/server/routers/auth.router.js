@@ -8,5 +8,4 @@ router.route("/signup").post(signUpController)
 
 router.route("/login").post(loginController)
 
-router.route("/me").get()
 export default router

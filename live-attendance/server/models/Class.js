@@ -9,9 +9,10 @@ const ClassSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         required:true ,
     },
-    studentIds:[{
-        type:mongoose.Schema.Types.ObjectId
-    }],
+    studentIds:{
+        type:[mongoose.Schema.Types.ObjectId],
+        default:[]
+    }
 },{timestamps:true})
 
 const Class = mongoose.models.Class || mongoose.model("Class", ClassSchema)
