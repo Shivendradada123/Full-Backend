@@ -1,5 +1,5 @@
 const http = require("http");
-
+const fs = require('fs')
 const server = http.createServer((req, res) => {
   console.log(req.url, req.method, req.headers);
 
@@ -25,21 +25,10 @@ const server = http.createServer((req, res) => {
             </html>
           `);
     return res.end();
-  } else {
-    res.setHeader("Conttent-Type", "text/html");
-    res.write(`<html>
-          <head>
-<title>   First html code in node js  </title>
-        </head>
-        <body>
-
-          <h1>
-           404 not Found
-            </h1>
-        </body>
-            </html>
-          `);
-    res.end();
+  } else if(req.url=== '/submit' && req.method == 'POST'){
+    fs.writeFileSync('user.txt', 'Shivendra Saket');
+    res.statusCode = 302;
+    res.setHeader('location', '/')
   }
 });
 

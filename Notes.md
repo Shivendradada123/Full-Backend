@@ -290,3 +290,16 @@ server.listen(PORT, () => {
   }
 })
 ```
+
+## Redirecting a page 
+
+1. 302 ka matalb page ko redircet karna hai
+2. location me path de skate hai jaha pe le jana hai  
+
+```
+else if(req.url=== '/submit' && req.method == 'POST'){
+    fs.writeFileSync('user.txt', 'Shivendra Saket');
+    res.statusCode = 302;
+    res.setHeader('location', '/')
+  }
+  ```
