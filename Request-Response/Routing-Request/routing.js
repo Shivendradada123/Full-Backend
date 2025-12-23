@@ -10,31 +10,21 @@ const server = http.createServer((req, res) => {
 <title>   First html code in node js  </title>
         </head>
         <body>
+<form action="/submit" method='POST'>
+<h1> Enter your detail </h1>
+<input type='text' placeholder='enter your details'>
+  <label for="male">Male</label>
+<input type="radio" id="male" name="gender" value="male"> <br>
+<label for="female">Female</label>
+<input type="radio" id="female" name="gender" value="female"> <br>
 
-          <h1>
-           This is a home page
-           
-            </h1>
-            <a href="/about">About</a>
+<button>Submit</button>
+
+</form>
         </body>
             </html>
           `);
-  } else if (req.url === "/about") {
-    res.setHeader("Conttent-Type", "text/html");
-    res.write(`<html>
-          <head>
-<title>   First html code in node js  </title>
-        </head>
-        <body>
-
-          <h1>
-            Shivendra mauhariya
-            
-            </h1>
-        </body>
-            </html>
-          `);
-    res.end();
+    return res.end();
   } else {
     res.setHeader("Conttent-Type", "text/html");
     res.write(`<html>
