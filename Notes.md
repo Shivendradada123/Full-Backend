@@ -303,3 +303,15 @@ else if(req.url=== '/submit' && req.method == 'POST'){
     res.setHeader('location', '/')
   }
   ```
+
+
+
+# Parsing Request
+
+
+## Stream 
+
+![alt text](image-6.png)
+
+1. stream ka matlb hota hai ki koye data chote chote part me flow ho raha eg- yt me koye video uplaod ho rahi to eksta nhi hoti mb mb hoti ho 
+
