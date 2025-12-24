@@ -8,6 +8,7 @@ import authRouters from "./routers/auth.router.js"
 import authMiddleware from "./middleware/authmiddleware.js"
 import currreUserRoute from "./routers/currentUser.router.js"
 import classRoutes from './routers/class.router.js'
+import studentRoute from './routers/student.controller.js'
 dotenv.config()
 
 const mongdbUri = process.env.MONGODB_URI 
@@ -21,6 +22,7 @@ app.use(mongoConnectMiddleWare());
 app.use("/auth", authRouters)
 app.use("/auth", authMiddleware , currreUserRoute )
 app.use("/class", authMiddleware, classRoutes)
+app.use("/student" , studentRoute)
 /// initialise scoket 
 const socket = new Server(server,{
     cors:{
