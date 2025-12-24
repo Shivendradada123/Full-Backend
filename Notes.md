@@ -315,3 +315,39 @@ else if(req.url=== '/submit' && req.method == 'POST'){
 
 1. stream ka matlb hota hai ki koye data chote chote part me flow ho raha eg- yt me koye video uplaod ho rahi to eksta nhi hoti mb mb hoti ho 
 
+
+## Chunks
+
+![alt text](image-7.png)
+
+1. chunks me data wahi choote chhote part me ata hai
+
+## Buffers 
+![alt text](image-8.png)
+
+1. buffers me sab chunks ko order me lagata hai line by line squence me phir data ka output deta hai final
+
+
+## Reading a Buffers
+
+![alt text](image-9.png)
+
+```
+ else if (req.url === "/submit" && req.method == "POST") {
+    const body = [];
+    req.on("data", (chunk) => {
+      console.log(chunk);
+      body.push(chunk);
+    });
+    req.on("end", () => {
+      const fullBody = Buffer.concat(body).toString();
+      console.log(fullBody);
+    });
+ }
+ ```
+
+ 1. phele ek arry banye jisme chunks ko store karna hai 
+ 2.  fnc bana ke usme chunks ko push kare 
+ 3. chunks complete hone ke bad jo buffer hai inko ek sath jodega
+ 4. concat se sara data jud raha
+ 5. tostring se string me ho raha
