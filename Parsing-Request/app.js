@@ -35,14 +35,16 @@ const server = http.createServer((req, res) => {
     req.on("end", () => {
       const fullBody = Buffer.concat(body).toString();
       const params = new URLSearchParams(fullBody)
-      const objBody = {}
-      for (const [key, val] of params.entries()){
-        objBody[key]= val
-      }
-      console.log(objBody);
+      // const objBody = {}
+      // for (const [key, val] of params.entries()){
+      //   objBody[key]= val
+      // }
+      const  bodyObj = Object.fromEntries(params)
+      fs.writeFileSync("user.txt", JSON.stringify(bodyObj));
+      console.log(bodyObj);
     });
 
-    fs.writeFileSync("user.txt", "Shivendra Saket");
+    
     res.statusCode = 302;
     res.setHeader("location", "/");
     res.end();
