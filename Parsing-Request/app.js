@@ -34,7 +34,12 @@ const server = http.createServer((req, res) => {
     });
     req.on("end", () => {
       const fullBody = Buffer.concat(body).toString();
-      console.log(fullBody);
+      const params = new URLSearchParams(fullBody)
+      const objBody = {}
+      for (const [key, val] of params.entries()){
+        objBody[key]= val
+      }
+      console.log(objBody);
     });
 
     fs.writeFileSync("user.txt", "Shivendra Saket");

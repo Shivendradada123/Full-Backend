@@ -351,3 +351,22 @@ else if(req.url=== '/submit' && req.method == 'POST'){
  3. chunks complete hone ke bad jo buffer hai inko ek sath jodega
  4. concat se sara data jud raha
  5. tostring se string me ho raha
+
+ ## Parsing Request
+
+ ![alt text](image-10.png)
+
+ ```
+  req.on("end", () => {
+      const fullBody = Buffer.concat(body).toString();
+      const params = new URLSearchParams(fullBody)
+      const objBody = {}
+      for (const [key, val] of params.entries()){
+        objBody[key]= val
+      }
+      console.log(objBody);
+    });
+```
+
+1. data ko decode karne ke liye ye method use karte hai 
+2. data isse hamar object  me milta hia 
