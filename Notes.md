@@ -372,3 +372,18 @@ else if(req.url=== '/submit' && req.method == 'POST'){
 1. data ko decode karne ke liye ye method use karte hai 
 2. data isse hamar object  me milta hia 
 3. key matlab jo input hai
+
+
+# Import Modules 
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+![alt text](image-13.png)
+
+![alt text](image-14.png)
+
+1. jis file  me code hai umse niche module.export = // jist varible me fnc me store ho uska name \
+2. jis file me server ka code hai usme require(./path)
+3. ab require ko chahe jis varible me save karo use ho jayega creatserver wale mai 
+4. ye matter nhi karta ki jist name se export kiye ho usi ko use kare kiyuki export sirf wahi hua hai 
