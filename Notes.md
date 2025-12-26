@@ -390,3 +390,11 @@ else if(req.url=== '/submit' && req.method == 'POST'){
 
 
 
+## how to export multiple object
+
+![alt text](image-15.png)
+
+
+
+![alt text](image-16.png)
+
