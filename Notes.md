@@ -387,3 +387,6 @@ else if(req.url=== '/submit' && req.method == 'POST'){
 2. jis file me server ka code hai usme require(./path)
 3. ab require ko chahe jis varible me save karo use ho jayega creatserver wale mai 
 4. ye matter nhi karta ki jist name se export kiye ho usi ko use kare kiyuki export sirf wahi hua hai 
+
+
+
