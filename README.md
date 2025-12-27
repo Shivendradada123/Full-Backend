@@ -387,3 +387,43 @@ else if(req.url=== '/submit' && req.method == 'POST'){
 2. jis file me server ka code hai usme require(./path)
 3. ab require ko chahe jis varible me save karo use ho jayega creatserver wale mai 
 4. ye matter nhi karta ki jist name se export kiye ho usi ko use kare kiyuki export sirf wahi hua hai 
+
+
+
+## how to export multiple object
+
+![alt text](image-15.png)
+
+
+
+![alt text](image-16.png)
+
+
+# Event Loop and Async Code
+
+![alt text](image-17.png)
+
+
+
+
+![alt text](image-18.png)
+
+
+
+
+![alt text](image-19.png)
+
+1. Event Loop ek baar  me 1 kaam karta hai baaki sab wait karte hai 
+
+
+
+![alt text](image-20.png)
+
+
+![alt text](image-21.png)
+
+
+![alt text](image-22.png)
+
+
+![alt text](image-23.png)
