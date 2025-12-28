@@ -1,4 +1,5 @@
 
+const { error } = require("console");
 const fs = require("fs");
 const requestHandler = ((req, res) => {
   console.log(req.url, req.method);
@@ -40,14 +41,21 @@ const requestHandler = ((req, res) => {
       //   objBody[key]= val
       // }
       const  bodyObj = Object.fromEntries(params)
-      fs.writeFileSync("user.txt", JSON.stringify(bodyObj));
-      console.log(bodyObj);
+      // fs.writeFileSync("user.txt", JSON.stringify(bodyObj));
+
+      // second method non block code
+      fs.writeFileSync("user.txt", JSON.stringify(bodyObj), error =>{
+          console.log('file is written')
+  res.statusCode = 302;
+    res.setHeader("location", "/");
+    console.log(bodyObj);
+    res.end();
+      });
+      
     });
 
     
-    res.statusCode = 302;
-    res.setHeader("location", "/");
-    res.end();
+   
   }
 });
 
