@@ -42,20 +42,37 @@ const requestHandler = ((req, res) => {
       // }
       const  bodyObj = Object.fromEntries(params)
       // fs.writeFileSync("user.txt", JSON.stringify(bodyObj));
-
+console.log(bodyObj);
       // second method non block code
       fs.writeFileSync("user.txt", JSON.stringify(bodyObj), error =>{
           console.log('file is written')
   res.statusCode = 302;
     res.setHeader("location", "/");
-    console.log(bodyObj);
-    res.end();
+    
+     return res.end();
       });
       
     });
 
     
    
+  }else{
+                res.setHeader("Content-Type", "text/html");
+            res.write(`<html>
+                  <head>
+        <title>   First html code in node js  </title>
+                </head>
+                <body>
+     
+        <h1> 404 </h1>
+        
+                </body>
+                    </html>
+                  `);
+
+
+                      return res.end()
+
   }
 });
 

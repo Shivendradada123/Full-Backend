@@ -430,3 +430,9 @@ else if(req.url=== '/submit' && req.method == 'POST'){
 
 
 ![alt text](image-24.png)
+
+
+# Erorr and Debugging
+
+
+![alt text](image-25.png)
