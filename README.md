@@ -435,4 +435,28 @@ else if(req.url=== '/submit' && req.method == 'POST'){
 # Erorr and Debugging
 
 
-![alt text](image-25.png)
+## types Of Error
+
+![alt text](image-26.png)
+
+## Logical Error
+
+```
+const logic =()=>{
+
+let a = 5;
+if(a = 10){
+  console.log('10')
+}else{
+  console.log('no');
+  
+}
+
+
+};
+
+
+module.exports = logic
+```
+
+
