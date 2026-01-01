@@ -460,3 +460,44 @@ module.exports = logic
 ```
 
 
+# Express Js
+
+![alt text](image-27.png)
+
+# What Is A Express JS
+![alt text](image-28.png)
+
+## How to install express
+
+![alt text](image-29.png)
+
+## How to create a server
+![alt text](image-30.png)
+
+## How to add middleware
+
+```
+const http = require("http");
+
+const express = require('express');
+
+// const handler = require('./app')
+const app = express()
+
+app.use((req,res,next)=>{
+  console.log( 'hey this is a first middleware', req.url, req.method)
+});
+app.use((req,res,next)=>{
+  console.log( 'hey this is a Second middleware', req.url, req.method)
+});
+
+
+
+const server = http.createServer(app);
+
+
+const PORT = 5000;
+server.listen(PORT, () => {
+  console.log(`server is running at http://localhost:${PORT}`);
+});
+```
