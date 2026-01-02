@@ -21,7 +21,7 @@ app.use('/', (req,res,next)=>{
 });
 app.use('/2026',(req,res,next)=>{
   console.log( 'hey this is a Second middleware', req.url, req.method)
-  res.send('<h1> Happy New Year 2026</h1>')
+  res.send('<h1> Have a nice day</h1>')
 });
 
 
