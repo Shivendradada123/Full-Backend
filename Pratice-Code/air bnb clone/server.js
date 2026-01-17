@@ -11,7 +11,13 @@ next();
 });
 app.post('/jee',(req, res,next)=>{
 res.end('If You Do Something in a life Work Hard')
+next()
 
+});
+
+app.get('jee',(res,res,next)=>{
+
+res.send('ok')
 
 })
 
