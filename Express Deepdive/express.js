@@ -12,7 +12,7 @@ next()
 // second middleware
 app.use('/',(req,res,next)=>{
 
-console.log('this is a Second middleware')
+console.log('this is a Second middleware  and the code  ')
 
 next()
 });
