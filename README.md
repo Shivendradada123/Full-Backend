@@ -735,3 +735,8 @@ console.log(`server is runnig on http://localhost:${PORT}`)
 
 })
 ```
+
+
+# Styling using Tailwind 
+
+![alt text](image-33.png)
